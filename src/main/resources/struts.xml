@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+    <!-- 设置默认编码 -->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+
+    <!-- 上传的全部图片的最大限制-->
+    <constant name="struts.multipart.maxSize" value="1024102400"/>
+
+    <!-- 相关请求转发 -->
+    <!-- Struts2在2.5版本后添加strict-method-invocation(严格方法访问)，默认为true，不能使用动态方法调用功能，故需设为false -->
+    <package name="User" extends="struts-default,json-default" namespace="/" strict-method-invocation="false">
+        <!-- 保存用户 -->
+        <action name="saveUser" class="userAction" method="saveUser">
+            <result name="error">error.jsp</result>
+            <result name="succeed">succeed.jsp</result>
+        </action>
+        <!-- 查询用户 -->
+        <action name="queryUser" class="userAction" method="queryUser">
+            <result name="error">error.jsp</result>
+            <result name="succeed" type="json">
+                <param name="root">dataMap</param>
+            </result>
+        </action>
+        <!-- 修改用户 -->
+        <action name="updateUser" class="userAction" method="updateUser">
+            <result name="error">error.jsp</result>
+            <result name="succeed">succeed.jsp</result>
+        </action>
+        <!-- 删除用户 -->
+        <action name="deleteUser" class="userAction" method="deleteUser">
+            <result name="error">error.jsp</result>
+            <result name="succeed">succeed.jsp</result>
+        </action>
+    </package>
+
+</struts>
