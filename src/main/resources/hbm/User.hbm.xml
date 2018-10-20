@@ -5,6 +5,8 @@
 
 <hibernate-mapping>
     <class name="com.wulianfa.model.User" table="t_user">
+        <!-- 注明需要使用二级缓存的实体类 usage ：缓存策略 region ：指定缓存区域名（实体类全称） -->
+        <cache usage="read-write" region="com.wulianfa.model.User" />
         <!-- id -->
         <id name="userId" column="ID">
             <generator class="native"></generator>

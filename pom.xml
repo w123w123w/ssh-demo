@@ -75,6 +75,12 @@
       <artifactId>hibernate-core</artifactId>
       <version>${hibernate.version}</version>
     </dependency>
+    <!-- Hibernate二级缓存依赖 -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-ehcache</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
     <!-- MySQL 依赖 -->
     <dependency>
       <groupId>mysql</groupId>
